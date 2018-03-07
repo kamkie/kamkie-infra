@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="install-oc-windows.sh" type="BashConfigurationType" factoryName="Bash" singleton="true">
+    <module name="kamkie-infra" />
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="INTERPRETER_PATH" value="C:\Program Files\Git\bin\bash.exe" />
+    <option name="WORKING_DIRECTORY" value="D:\Projekty\kamkie-infra\minishift" />
+    <option name="PARENT_ENVS" value="true" />
+    <option name="SCRIPT_NAME" value="D:\Projekty\kamkie-infra\minishift\install-oc-windows.sh" />
+    <option name="PARAMETERS" value="" />
+    <method />
+  </configuration>
+</component>
