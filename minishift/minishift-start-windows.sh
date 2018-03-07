@@ -13,3 +13,9 @@ minishift start \
   --memory 6GB \
   --disk-size 30GB \
   --vm-driver hyperv
+
+minishift addons enable admin-user
+minishift addons apply admin-user
+minishift addons enable registry-route
+minishift addons apply registry-route
+oc login -u system:admin

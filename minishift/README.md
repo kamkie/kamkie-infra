@@ -39,4 +39,9 @@ cd minishift
 ./install-windows.sh
 ```
 
+## Setup
+```bash
+./minishift-start-windows.sh
+```
+
 
