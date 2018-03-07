@@ -19,3 +19,5 @@ minishift addons apply admin-user
 minishift addons enable registry-route
 minishift addons apply registry-route
 oc login -u system:admin
+
+minishift console

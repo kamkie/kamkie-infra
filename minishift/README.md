@@ -34,14 +34,29 @@ Minishift uses libmachine for provisioning VMs, and OpenShift Origin for running
 * `brew cask install minishift`
 
 ### scripts from this repo
+using git bash
 ```bash
 cd minishift
 ./install-windows.sh
 ```
 
 ## Setup
+using git bash
 ```bash
-./minishift-start-windows.sh
+./minishift-start-windows-hyperv.sh
 ```
+
+## Usage
+[more details](https://docs.openshift.org/latest/minishift/using/index.html)
+* deploy simple app from cli
+```bash
+oc new-app https://github.com/openshift/nodejs-ex -l name=myapp
+oc expose svc/nodejs-ex
+minishift openshift service nodejs-ex --in-browser
+```
+* `minishift console` will open openshift web console in default browser 
+you can use `developer` as a username with any password and `admin` with any password as administrator (similar to system:admin from terminal)
+* choose `Pipeline Build Example` from catalog and create new deployment
+* use `eval $(minishift docker-env)` to point docker to your minishift docker daemon. This will allow to build images directly on minishift instance. Also then you can stop docker for windows to free up some memory 
 
 
