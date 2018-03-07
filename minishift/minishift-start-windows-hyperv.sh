@@ -2,7 +2,7 @@
 
 set -e
 
-export HYPERV_VIRTUAL_SWITCH="Default Switch"
+export HYPERV_VIRTUAL_SWITCH="$(powershell -c '(Get-VMNetworkAdapter -ALL | Where {$_.Status -Eq "Ok"} | Where {$_.SwitchName -NotLike "*nat*" }).SwitchName')"
 minishift delete -f || true
 cd /c
 minishift start \
