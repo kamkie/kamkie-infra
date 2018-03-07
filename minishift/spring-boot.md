@@ -5,3 +5,11 @@
 ```bash
 ./import-java8-template.sh
 ```
+
+## deploy playground-api
+1```bash
+oc new-app openshift/openjdk18-web-basic-s2i~https://github.com/lukaszjdrzewiecki/playground-api.git
+oc expose svc/playground-api
+
+curl -v -L $(oc get route/playground-api --no-headers -o jsonpath='{.status.ingress[*].host}')/playground-api
+```
