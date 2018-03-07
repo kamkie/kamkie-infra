@@ -58,5 +58,4 @@ minishift openshift service nodejs-ex --in-browser
 you can use `developer` as a username with any password and `admin` with any password as administrator (similar to system:admin from terminal)
 * choose `Pipeline Build Example` from catalog and create new deployment
 * use `eval $(minishift docker-env)` to point docker to your minishift docker daemon. This will allow to build images directly on minishift instance. Also then you can stop docker for windows to free up some memory 
-
-
+* 

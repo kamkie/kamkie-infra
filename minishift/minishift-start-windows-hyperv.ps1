@@ -1,7 +1,7 @@
 
 $SwitchName=(Get-VMNetworkAdapter -ALL | Where {$_.Status -Eq "Ok"} | Where {$_.SwitchName -NotLike "*nat*" }).SwitchName
-[Environment]::SetEnvironmentVariable("Path", $SwitchName, [EnvironmentVariableTarget]::User)
-[Environment]::SetEnvironmentVariable("Path", $SwitchName, [EnvironmentVariableTarget]::Process)
+[Environment]::SetEnvironmentVariable("HYPERV_VIRTUAL_SWITCH", $SwitchName, [EnvironmentVariableTarget]::User)
+[Environment]::SetEnvironmentVariable("HYPERV_VIRTUAL_SWITCH", $SwitchName, [EnvironmentVariableTarget]::Process)
 
 minishift delete -f
 cd /c
