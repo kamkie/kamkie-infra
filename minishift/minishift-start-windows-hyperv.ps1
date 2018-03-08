@@ -1,11 +1,21 @@
 
-#$SwitchName=(Get-VMNetworkAdapter -ALL | Where {$_.Status -Eq "Ok"} | Where {$_.SwitchName -NotLike "*nat*" }).SwitchName
+##$SwitchName=(Get-VMNetworkAdapter -ALL | Where {$_.Status -Eq "Ok"} | Where {$_.SwitchName -NotLike "*nat*" }).SwitchName
+
+#$SwitchName='SwitchName'
+#if (!(Get-VMNetworkAdapter -ALL | Where {$_.SwitchName -Eq $SwitchName })) {
+#    New-VMSwitch -SwitchName $SwitchName -SwitchType Internal
+#    New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceAlias "vEthernet ($SwitchName)" -AddressFamily IPv4
+#    New-NetNat -Name $SwitchName -InternalIPInterfaceAddressPrefix 192.168.0.0/24
+#    Get-NetIPAddress | Where {$_.InterfaceAlias -Eq 'vEthernet ($SwitchName)'}
+#}
+
 #[Environment]::SetEnvironmentVariable("HYPERV_VIRTUAL_SWITCH", $SwitchName, [EnvironmentVariableTarget]::User)
 #[Environment]::SetEnvironmentVariable("HYPERV_VIRTUAL_SWITCH", $SwitchName, [EnvironmentVariableTarget]::Process)
 
-New-NetNat -Name SharedNAT -InternalIPInterfaceAddressPrefix 10.0.75.1/24
+$SwitchName='DockerNAT'
+$env:HYPERV_VIRTUAL_SWITCH=$SwitchName
+echo HYPERV_VIRTUAL_SWITCH=$SwitchName
 $env:MINISHIFT_ENABLE_EXPERIMENTAL="y"
-$env:HYPERV_VIRTUAL_SWITCH="DockerNAT"
 
 minishift delete -f
 cd c:\
