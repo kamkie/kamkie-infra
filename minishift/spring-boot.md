@@ -15,11 +15,16 @@ curl -v -L $(oc get route/playground-api --no-headers -o jsonpath='{.status.ingr
 ```
 
 ## deploy playground-frontend
-1```bash
+```bash
 oc new-app openshift/nodejs:6~https://github.com/kamkie/SimpleSchoolApp.git  -e DOCKER_BACKEND_API=http://$(oc get route/playground-api --no-headers -o jsonpath='{.status.ingress[*].host}')/playground-api
 
 $(oc get route/playground-api --no-headers -o jsonpath='{.status.ingress[*].host}')/playground-api
 oc expose svc/simpleschoolapp
 
 curl -v -L $(oc get route/simpleschoolapp --no-headers -o jsonpath='{.status.ingress[*].host}')/api
+```
+
+## check version
+```bash
+curl -v -L $(oc get route/simpleschoolapp --no-headers -o jsonpath='{.status.ingress[*].host}')/api/info
 ```
