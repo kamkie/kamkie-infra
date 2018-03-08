@@ -13,13 +13,23 @@
 #[Environment]::SetEnvironmentVariable("HYPERV_VIRTUAL_SWITCH", $SwitchName, [EnvironmentVariableTarget]::Process)
 
 $SwitchName='DockerNAT'
+#New-NetNat -Name SharedNAT -InternalIPInterfaceAddressPrefix 10.0.75.1/24
 $env:HYPERV_VIRTUAL_SWITCH=$SwitchName
 echo HYPERV_VIRTUAL_SWITCH=$SwitchName
 $env:MINISHIFT_ENABLE_EXPERIMENTAL="y"
 
 minishift delete -f
 cd c:\
-minishift start   --metrics   --logging   --logtostderr  --cpus 4   --memory 6GB   --disk-size 30GB   --vm-driver hyperv
+minishift start `
+  --metrics `
+  --logging `
+  --logtostderr `
+  --cpus 4   --memory 6GB   --disk-size 30GB `
+  --vm-driver hyperv
+
+#  --network-ipaddress 10.0.75.124 `
+#  --network-gateway 10.0.75.1 `
+#  --network-nameserver 8.8.8.8
 
 minishift addons enable admin-user
 minishift addons apply admin-user
