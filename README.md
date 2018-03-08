@@ -1,7 +1,7 @@
 # Infrastructure setup by kamkie
 
 ## openshift
-* [oc cluster up](minishift/README.md) (any docker)
+* [oc cluster up](oc-cluster-up/README.md) (any docker)
 * [minishift](minishift/README.md) (virtualbox, hyper-v, kvm, xhyve)
 * [cdk](minishift/README.md)
 
