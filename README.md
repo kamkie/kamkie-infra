@@ -16,3 +16,9 @@
 
 ## docker swarm
 * docker for desktop 17.06
+
+## ci/cd jenkins
+to provide best experience customized base images are a necessity    
+
+### jenkins slave docker image
+* [jenkins-slave-nodejs6-centos7](https://hub.docker.com/r/kamkie/jenkins-slave-nodejs6-centos7/)
