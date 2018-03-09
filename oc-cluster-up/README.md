@@ -1,8 +1,9 @@
 # oc cluster up
-https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md
+[oc cluster docs](https://github.com/openshift/origin/blob/master/docs/cluster_up_down.md)
 
 ## use script to setup cluster
-`start-oc-cluster.sh`
+`./start-oc-cluster.sh`
+this script will create presistent cluster
 
 # Local Cluster Management
 
