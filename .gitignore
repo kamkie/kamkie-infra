@@ -12,3 +12,4 @@ gen
 *.zip
 *.tar*
 *.exe
+/hyper-v/qemu-img/
