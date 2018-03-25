@@ -1,4 +1,3 @@
-
 ##$SwitchName=(Get-VMNetworkAdapter -ALL | Where {$_.Status -Eq "Ok"} | Where {$_.SwitchName -NotLike "*nat*" }).SwitchName
 
 #$SwitchName='SwitchName'
@@ -12,11 +11,11 @@
 #[Environment]::SetEnvironmentVariable("HYPERV_VIRTUAL_SWITCH", $SwitchName, [EnvironmentVariableTarget]::User)
 #[Environment]::SetEnvironmentVariable("HYPERV_VIRTUAL_SWITCH", $SwitchName, [EnvironmentVariableTarget]::Process)
 
-$SwitchName='DockerNAT'
+$SwitchName = 'DockerNAT'
 #New-NetNat -Name SharedNAT -InternalIPInterfaceAddressPrefix 10.0.75.1/24
-$env:HYPERV_VIRTUAL_SWITCH=$SwitchName
-echo HYPERV_VIRTUAL_SWITCH=$SwitchName
-$env:MINISHIFT_ENABLE_EXPERIMENTAL="y"
+$env:HYPERV_VIRTUAL_SWITCH = $SwitchName
+echo HYPERV_VIRTUAL_SWITCH = $SwitchName
+$env:MINISHIFT_ENABLE_EXPERIMENTAL = "y"
 
 minishift delete -f
 cd c:\
